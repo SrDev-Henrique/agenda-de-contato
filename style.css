@@ -32,9 +32,14 @@ body {
 .lista-contatos {
     margin-left: 0;
     max-width: 650px;
+    max-height: 710px;
     width: 100%;
     border-right: 3px solid rgb(138, 113, 80, 0.3);
     animation: 1s fadeDownAnimation;
+    overflow-y: auto;
+    /* todo Adicionando scrollbar para firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #8a7150 #F5DEB3;
 }
 
 .lista-contatos h1 {
@@ -88,12 +93,8 @@ tbody thead td tr{
     border-bottom: 3px solid rgb(138, 113, 80, 0.3);
 }
 
-.adicionar-contatos div{
-    background-color: #D2B48C;
-}
-
 .adicionar-contatos button{
-    margin-left: 45px;
+    margin-left: 36px;
     padding: 15px;
     text-transform: uppercase;
     font-weight: bold;
@@ -131,8 +132,13 @@ tbody thead td tr{
     font-weight: bolder;
 }
 
+.adicionar-contatos .foot{
+    border-radius: 20px;
+    width: 100%;
+    text-align: center;
+}
+
 .adicionar-contatos p{
-    margin-left: 70px;
     margin-top: 60px;
     padding: 5px;
     color: #8a7150;
@@ -232,8 +238,20 @@ tbody thead td tr{
     z-index: 2;
 }
 
-.popup-box #checkbox{
-    background: #8a7150;
+/* todo Estilizando a barra de rolagem */
+.lista-contatos::-webkit-scrollbar {
+    width: 12px;
+}
+
+.lista-contatos::-webkit-scrollbar-thumb {
+    background-color: #8a7150;
+    border-radius: 10px;
+    border: 3px solid #F5DEB3;
+}
+
+.lista-contatos::-webkit-scrollbar-track {
+    background-color: #F5DEB3;
+    border-radius: 10px;
 }
 
 @keyframes fadeDownAnimation {
@@ -257,5 +275,110 @@ tbody thead td tr{
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@media (max-width: 648px) {
+    body {
+        background: radial-gradient(circle, #FAF0E6, #F5DEB3, #D2B48C);
+        overflow: auto;
+        /* Permitir o scroll */
+    }
+
+    .container {
+        width: 90%;
+        height: auto;
+        margin: 20px auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .lista-contatos {
+        max-width: 100%;
+        margin: 0;
+        border-right: none;
+        border-bottom: 3px solid rgb(138, 113, 80, 0.3);
+    }
+
+    .lista-contatos h1 {
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .adicionar-contatos {
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 20px;
+    }
+
+    .adicionar-contatos header {
+        height: 50px;
+        padding-bottom: 150px;
+    }
+
+    .adicionar-contatos p {
+        margin-bottom: 10px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .adicionar-contatos .foot {
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    .adicionar-contatos header h1 {
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    .adicionar-contatos button {
+        font-size: 14px;
+        padding: 10px;
+        margin-left: 95px;
+    }
+
+    .popup-box {
+        width: 80%;
+    }
+
+    .popup-box form input {
+        width: 90%;
+        padding: 6px;
+    }
+
+    .popup-box form label {
+        font-size: 14px;
+    }
+
+    .popup-box button {
+        font-size: 14px;
+        margin-right: 95px;
+    }
+
+    .popup-box .closebtn{
+        margin-right: -230px;
+        margin-bottom: 20px;
+    }
+
+    .popup-box h1{
+        margin-bottom: 105px;
+    }
+
+    .popup-container {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .popup-container .popup-box {
+        width: 400px;
     }
 }
